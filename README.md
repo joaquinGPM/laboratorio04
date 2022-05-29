@@ -30,17 +30,15 @@
 </theader>
 <tbody>
 <tr><td>ASIGNATURA:</td><td colspan="5">Programación Web 2</td></tr>
-<tr><td>TÍTULO DE LA PRÁCTICA:</td><td colspan="5">Ajax y NodeJS</td></tr>
+<tr><td>TÍTULO DE LA PRÁCTICA:</td><td colspan="5">Python</td></tr>
 <tr>
-<td>NÚMERO DE PRÁCTICA:</td><td>03</td><td>AÑO LECTIVO:</td><td>2022 A</td><td>NRO. SEMESTRE:</td><td>III</td>
+<td>NÚMERO DE PRÁCTICA:</td><td>04</td><td>AÑO LECTIVO:</td><td>2022 A</td><td>NRO. SEMESTRE:</td><td>III</td>
 </tr>
 <tr>
-<td>FECHA DE PRESENTACION:</td><td>15-May-2022</td><td>HORA DE PRESENTACION:</td><td colspan="3">21:00</td>
+<td>FECHA DE PRESENTACION:</td><td>29-May-2022</td><td>HORA DE PRESENTACION:</td><td colspan="3">21:00</td>
 </tr>
 <tr><td colspan="3">Integrantes:
 <ul>
-<li>Kevin Pedro Yare Chulunquia</li>
-<li>Joel Erick Gutierrez Puma</li>
 <li>Joaquín Gonzalo Paredes Mescco</li>
 </ul>
 </td>
@@ -57,65 +55,74 @@
 
 
 # Solución y resultados
+## EJERCICIOS PROPUESTOS
+-   En esta tarea usted pondrá en práctica sus conocimientos de programación en Python para dibujar un tablero de Ajedrez. 
+-   La parte gráfica ya está programada, usted sólo tendrá que concentrarse en las estructuras de datos subyacentes.
+-   Con el código proporcionado usted dispondrá de varios objetos de tipo Picture para poder realizar su tarea:
+    ![Fichas de ajedrez](imagenes/picture.png)
+-   Estos objetos estarán disponibles importando la biblioteca: [chessPictures](Tarea-del-Ajedrez/chessPictures.py) y estarán internamente representados con arreglos de strings que podrá revisar en el archivo [pieces.py](Tarea-del-Ajedrez/pieces.py)
+-   La clase [Picture](Tarea-del-Ajedrez/picture.py) tiene un sólo atributo: el arreglo de strings img, el cual contendrá la representación en caracteres de la figura que se desea dibujar. 
+-   La clase [Picture](Tarea-del-Ajedrez/picture.py) ya cuenta con una función implementada, no debe modificarla, pero si puede usarla para implementar sus otras funciones:
+    -   _invColor: recibe un color como un caracter de texto y devuelve su color negativo, también como texto, deberá revisar el archivo [colors.py](Tarea-del-Ajedrez/colors.py) para conocer los valores negativos de cada caracter.
 
-## I.		SOLUCIÓN DE EJERCICIOS/PROBLEMAS
+-   La clase [Picture](Tarea-del-Ajedrez/picture.py) contará además con varios métodos que usted deberá implementar:
+    1.  verticalMirror: Devuelve el espejo vertical de la imagen
+    2.  horizontalMirror: Devuelve el espejo horizontal de la imagen
+    3.  negative: Devuelve un negativo de la imagen
+    4.  join: Devuelve una nueva figura poniendo la figura del argumento al lado derecho de la figura actual
+    5.  up: Devuelve una nueva figura poniendo la figura recibida como argumento, encima de la figura actual
+    6.  under: Devuelve una nueva figura poniendo la figura recibida como argumento, sobre la figura actual
+    7.  horizontalRepeat, Devuelve una nueva figura repitiendo la figura actual al costado la cantidad de veces que indique el valor de n
+    8.  verticalRepeat Devuelve una nueva figura repitiendo la figura actual debajo, la cantidad de veces que indique el valor de n
 
--  En grupos de 3 a 5 personas implemente una aplicación web que navegue sobre archivos Markdown y permita:
-    1. Listas los archivos Markdown disponibles
-      * Resolución
-      
-      JavaScript
-      
-      ![sol1](https://user-images.githubusercontent.com/83080715/168726723-930de5ea-5776-49fb-9b6c-dc7e300688ec.png)
-      
-      Html
-      
-      ![sol2](https://user-images.githubusercontent.com/83080715/168726762-e53d62f2-6d8a-49ae-883e-227a783de7b7.png)
-   
-    3. Ver el contenido de un archivo Markdown traducido a HTML
-      * Resolucion 
+-   Tenga en cuenta que para implementar todos estos métodos, sólo deberá trabajar sobre la representación interna de un Picture, es decir su atributo img.
 
-    ![image](https://user-images.githubusercontent.com/91225726/168731405-03fe8979-1d64-4a00-b02e-145d3936f6b1.png)
-    ![image](https://user-images.githubusercontent.com/91225726/168731812-e44172b2-98dd-420d-8358-393fa6ebc874.png) 
+-   Para dibujar una objeto Picture bastará importar el método draw de la biblioteca interpreter y usarlo de la siguiente manera:
+    ```sh
+    $ python3
+    Python 3.9.2 (default, Feb 28 2021, 17:03:44) 
+    [GCC 10.2.1 20210110] on linux
+    Type "help", "copyright", "credits" or "license" for more information.
+    ```
+    ```sh
+    >>> from chessPictures import *
+    >>> from interpreter import draw
+    pygame 1.9.6
+    Hello from the pygame community. https://www.pygame.org/contribute.html
+    >>> draw(rock)
+    ```
+    ![PyGame](imagenes/pygame_rock.png)
 
-   
-    5. Crear nuevos archivos MarkDown y almacenarlos en el servidor
-      * Resolución
+-   Ejercicios:
 
--   La comunicación entre el cliente y el servidor tiene que ser usando JSON sólamente.
-El cliente debe usar AJAX para sus peticiones
-El servidor debe usar NodeJS
-Su aplicación debe ser de página única, es decir que sólo habrá un archivo index.html y nada más.
+    -   Para resolver los siguientes ejercicios sólo está permitido usar ciclos, condicionales, definición de listas por comprensión, sublistas, map, join, (+), lambda, zip, append, pop, range.
 
--   Si los enlaces proporcionado en esta guía no le son suficientes, puede revisar códigos en Internet que le ayuden con cosas como ejemplos: listar un directorio en NodeJS; pero deberá incluir los enlaces correspondientes en sus archivos como comentarios y sólo podrá usar código de stackoverflow, incluir código de cualquier otra fuente está prohibido y se considerará actitud deshonesta.
+        1.  Implemente los métodos de la clase Picture. Se recomienda que implemente la clase picture por etapas, probando realizar los dibujos que se muestran en la siguiente preguntas.
+        2.  Usando únicamente los métodos de los objetos de la clase Picture dibuje las siguientes figuras (invoque a draw):
+
+            *    (a) ![(a)](imagenes/ejercicio_02_a.png)
+
+            *    (b) ![(b)](imagenes/ejercicio_02_b.png)
+
+            *    (c) ![(c)](imagenes/ejercicio_02_c.png)
+
+            *    (d) ![(d)](imagenes/ejercicio_02_d.png)
+
+            *    (e) ![(e)](imagenes/ejercicio_02_e.png)
+
+            *    (f) ![(f)](imagenes/ejercicio_02_f.png)
+
+            *    (g) ![(g)](imagenes/ejercicio_02_g.png)
+
+#
+
+
 
 ## II.	SOLUCIÓN DE CUESTIONARIO
 
-- En el Ejemplo "Hola Mundo" con NodeJS. ¿Qué pasó con la línea: "Content type ….."?
-    * En ese ejemplo no se le agregó por que no se espicifico que se muestre en HTML, en todo caso debiera introducir un encabezado HTTP con el tipo de contenido correcto. Como por ejemplo: 
-        ```sh
-        res.writeHead(200, {'Content-Type': 'text/html'}); 
-        ```
-- En los ejercicios. ¿En qué lugar debería estar el archivo poema.txt?
-    * Debiera estar en una carpeta llamada priv.
-        ```sh
-        fs.readFile(path.resolve(__dirname, 'priv/poema.txt'), 'utf8', 
-        ```
-- ¿Entiende la expresión regular en el código y se da cuenta de para qué es útil?
-    * Sí, lo que hace la expresión regular es que por cada espacio en el poema, lo reemplazará por un \<br> literalmente. Y nos puede ser util cuando queramos reconocer cadenas de texto, y por ejemplo, en este caso, modificarlas.
-        ```sh
-        response.json({
-                text: data.replace(/\n/g, '<br>')
-            })
-        ```
-- Note que la respuesta del servidor está en formato JSON, ¿Habrá alguna forma de verla directamente?
-    * Podría ser agregando donde este llamé aun método que muestre el texto(poema) directamente.
-## III.	CONCLUSIONES
-
-- En conclusión NodeJS nos permitió en este laboratorio crear aplicaciones web clásicas en el servidor, donde se establece comunicación bilateral.
+-   ¿Qué son los archivos *.pyc?
+-   ¿Para qué sirve el directorio __pycache__?
+-   ¿Cuáles son los usos y lo que representa el subguión en Python?
 
 ## REFERENCIAS Y BIBLIOGRÁFIA RECOMENDADAS
--   https://www.w3schools.com/nodejs/nodejs_intro.asp
--   https://nodejs.org/en/docs/guides/getting-started-guide/
--   https://nodejs.dev/learn
--   https://www.w3schools.com/js/js_api_fetch.asp
+-   
